@@ -18,7 +18,7 @@ theta = np.arctan(Fz / (F1 + Fy))
 
 Plug = P / 2
 Plug = round(Plug, 1)
-Fxlug = Fx / 2
+Fxlug = (Fx / 2) + My / hz
 Fxlug = round(Fxlug, 1)
 
 
