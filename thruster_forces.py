@@ -11,7 +11,7 @@ thickness = 16.25 # mm
 m = 100.81 / 2 # kg
 
 # offset from the lug to the SA center of gravity
-d_x = 8430.9 - length / 2 # mm
+d_x = 1500 + length/2 # mm
 d_y = 0 # mm
 d_z = 0 # mm
 
