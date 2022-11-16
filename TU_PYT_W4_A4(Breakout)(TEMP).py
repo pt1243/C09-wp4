@@ -60,9 +60,9 @@ class Brick(pg.sprite.Sprite):
        colour = random.choice(colour_lst)
        image = [pg.image.load(name) for name in image_lst]
        image_random_not_scaled = random.choice(image)
-       self.image = pg.transform.scale(image_random_not_scaled, (brick_width, brick_height)) #
+       #self.image = pg.transform.scale(image_random_not_scaled, (brick_width, brick_height)) #
 
-       #self.image.fill(colour)
+       self.image.fill(colour)
        self.rect.center = [brick_x + 0.5 * brick_width, brick_y + 0.5 * brick_height]
     def destroy(self):
         pg.sprite.spritecollide(ball_sprite, Wall_group, True)
