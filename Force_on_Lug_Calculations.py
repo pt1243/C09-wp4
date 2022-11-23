@@ -19,7 +19,7 @@ Sum_Fy = (Fy / 2) + F1
 Sum_Fz = (Fz / 2)
 
 P = np.sqrt(((Sum_Fy) ** 2) + ((Sum_Fz) ** 2))
-theta = np.arctan(abs(Sum_Fz / Sum_Fy)) * 180 / np.pi
+theta = np.degrees(np.arctan(abs(Sum_Fz / Sum_Fy)))
 print(Sum_Fy, Sum_Fz)
 
 print("The magnitude of the P force on each lug = %.1f [N], "
