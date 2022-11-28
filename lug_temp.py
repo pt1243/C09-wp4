@@ -74,7 +74,7 @@ cold_roots = cold_equation.roots()
 
 for z in hot_roots:
     if z.imag == 0 and z.real > 0:
-        print(f'Hot case: {z.real} K')
+        print(f'Hot case:', z.real, ' K')
 for z in cold_roots:
     if z.imag == 0 and z.real > 0:
-        print(f'Cold case: {z.real} K')
+        print('Cold case:', z.real, ' K')
