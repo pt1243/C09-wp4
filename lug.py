@@ -39,7 +39,7 @@ print('P_ax = '+str(P_ax)+' P_tr = '+str(P_tr))
 #Material Properties
 YS_p = 393*10**6 # Pa Yield Strength of the pin
 SS_p = 290*10**6 # Pa Shear Strength of the pin
-FoS = 0.5 # Factor of Safity
+FoS = 1 # Factor of Safity
 #Shear
 D_1 = ((2*P*(1+FoS))/(SS_p*np.pi))**(1/2)*10**3 #calculating D1 from shear
 #Bending
@@ -48,7 +48,7 @@ print(str(D_1) + ' mm')
 ### INPUTS ###
 
 #Dimensions INPUT
-D_1 = 15*10**-3 # m
+D_1 = 7*10**-3 # m
 h = 16.25*10**-3 # m
 w = 20*10**-3 # m design parameter
 t_1 = 5*10**-3 # m design parameter
@@ -59,7 +59,7 @@ YS_l = 448*10**6 # Pa Yield Strength of the lug
 SS_l = 331*10**6 # Pa Shear Strength of the lug
 
 # Stress Concentration Factors
-K_t = 1 # stress concentration factor for Net Section tension
+K_t = 0.92#1 # stress concentration factor for Net Section tension
 K_bry = 0.2 # stress concentration factor for Shear Out-bearing
 K_ty = 0.32 # Stress concentration factor for Transverse loading failure
 
