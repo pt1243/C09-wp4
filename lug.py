@@ -48,28 +48,30 @@ print(str(D_1) + ' mm')
 ### INPUTS ###
 
 #Dimensions INPUT
-D_1 = 7*10**-3 # m
+D_1 = 7*10**-3 # m see the report for the description of these parameters
 h = 16.25*10**-3 # m
-w = 20*10**-3 # m design parameter
-t_1 = 5*10**-3 # m design parameter
+w = 20*10**-3 # m 
+t_1 = 5*10**-3 # m
 
 # Material Properties INPUT
 UTS_l = 483*10**6 # Pa Ultimate Tensile strength of the lug
 YS_l = 448*10**6 # Pa Yield Strength of the lug
 SS_l = 331*10**6 # Pa Shear Strength of the lug
 
-# Stress Concentration Factors
-K_t = 0.92#1 # stress concentration factor for Net Section tension
+# Stress Concentration Factors INPUT
+K_t = 0.92  # stress concentration factor for Net Section tension
 K_bry = 0.2 # stress concentration factor for Shear Out-bearing
 K_ty = 0.32 # Stress concentration factor for Transverse loading failure
 
 #Calculating the areas for the transfers loading failure
+#See report for the definitions of the different areas
 A_1 = (w-D_1*np.cos(np.pi/4))/2*t_1
 A_2 = (w-D_1)/2*t_1
 A_3 = (w-D_1)/2*t_1
 A_4 = (w-D_1*np.cos(np.pi/4))/2*t_1
 A_av = 6/(3/A_1+1/A_2+1/A_3+1/A_4)
 A_brt = D_1*t_1
+#Printing the neccesary parameters for determining the concentration factors
 print('W/D_1 for K_t: '+str(w/D_1))
 print('e/D_1 for K_bry: '+str(w/(2*D_1)))
 print('t_1/D_1 for K_bry: '+str(t_1/D_1))
@@ -103,14 +105,16 @@ MS = 1/(R_a**1.6+R_tr**1.6)**0.625-1
 print('Factor of safety: ' + str(MS))
 
 #Bending 
+#Forces that cause bending
 F_x = abs(Sum_Fx) # N
 F_z = abs(Sum_Fz) # N
 print('Fz='+str(F_z))
+#moment of inertia of the crossection at the root of the flenge
 I_zz = t_1**3*w/12
 I_xx = w**3*t_1/12
-L = w/2  #this assumption can be changed
-sigma_max = (F_x*L)/I_zz*t_1/2+(F_z*L)/I_xx*w/2
-print(YS_l/sigma_max-1)
+L = w/2  #moment arm <- this assumption can be changed
+sigma_max = (F_x*L)/I_zz*t_1/2+(F_z*L)/I_xx*w/2 #maximum normal stress occurs at the corners of the cross section
+print('FoS for bending:'+str(YS_l/sigma_max-1)) #safety factor for bending
 if sigma_max >= YS_l:
   print('The lug fails in bending')
 else:
